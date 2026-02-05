@@ -26,6 +26,15 @@ class DatabaseSeeder extends Seeder
             'is_active' => true,
         ]);
 
+        // Create admin user in users table (role-based admin)
+        User::create([
+            'name' => 'SBUC Admin',
+            'email' => 'admin@sbuc.com',
+            'mobile' => '9999999999',
+            'password' => Hash::make('password'),
+            'role' => 'admin',
+        ]);
+
         // Create test user
         User::create([
             'name' => 'Test User',

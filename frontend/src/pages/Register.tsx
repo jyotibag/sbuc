@@ -38,11 +38,12 @@ const Register = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-50 to-teal-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-100 via-white to-mint/40" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-md w-full space-y-8 bg-white p-8 rounded-2xl shadow-xl"
+        className="relative max-w-md w-full space-y-8 card p-10"
       >
         <div>
           <h2 className="text-center text-3xl font-bold text-gray-900">Create Account</h2>
@@ -69,7 +70,7 @@ const Register = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="input-field pl-10"
-                  placeholder="John Doe"
+                  placeholder="Shibani Banerjee"
                 />
               </div>
             </div>
@@ -117,7 +118,7 @@ const Register = () => {
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className="input-field pl-10"
-                  placeholder="••••••••"
+                  placeholder="********"
                 />
               </div>
             </div>
@@ -133,7 +134,7 @@ const Register = () => {
                   value={formData.password_confirmation}
                   onChange={(e) => setFormData({ ...formData, password_confirmation: e.target.value })}
                   className="input-field pl-10"
-                  placeholder="••••••••"
+                  placeholder="********"
                 />
               </div>
             </div>

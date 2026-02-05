@@ -62,7 +62,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <motion.div
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -6 }}
       className="card group"
     >
       <Link to={`/product/${product.id}`}>
@@ -73,18 +73,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           />
           {product.discount_percentage > 0 && (
-            <span className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+            <span className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
               -{product.discount_percentage}%
             </span>
           )}
           {product.is_santiniketan && (
-            <span className="absolute top-2 right-2 bg-teal-500 text-white px-2 py-1 rounded text-xs font-semibold">
+            <span className="absolute top-3 right-3 bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
               Santiniketan
             </span>
           )}
           <button
             onClick={handleWishlistToggle}
-            className="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-teal-50"
+            className="absolute bottom-3 right-3 bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-teal-50"
           >
             <Heart className={`w-5 h-5 ${inWishlist ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} />
           </button>

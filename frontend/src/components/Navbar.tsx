@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ShoppingCart, Heart, User, Menu, X } from 'lucide-react'
+import { ShoppingCart, Heart, User, Menu, X, Crown } from 'lucide-react'
 import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useCart } from '../contexts/CartContext'
@@ -11,9 +11,10 @@ const Navbar = () => {
   const { cartCount } = useCart()
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="sticky top-0 z-50">
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-xl border-b border-teal-100" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="relative flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <Logo className="h-12 w-auto" />
@@ -27,8 +28,19 @@ const Navbar = () => {
             <Link to="/shop" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
               Shop
             </Link>
+            <Link to="/about" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              About
+            </Link>
+            <Link to="/contact" className="text-gray-700 hover:text-teal-600 font-medium transition-colors">
+              Contact
+            </Link>
             {user ? (
               <>
+                {user.role === 'admin' && (
+                  <Link to="/admin/products" className="inline-flex items-center gap-2 text-teal-700 font-semibold">
+                    <Crown className="w-4 h-4" /> Admin
+                  </Link>
+                )}
                 <Link to="/wishlist" className="relative text-gray-700 hover:text-teal-600 transition-colors">
                   <Heart className="w-6 h-6" />
                 </Link>
@@ -70,11 +82,16 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
+          <div className="md:hidden py-4 space-y-4 relative">
             <Link to="/" className="block text-gray-700 hover:text-teal-600">Home</Link>
             <Link to="/shop" className="block text-gray-700 hover:text-teal-600">Shop</Link>
+            <Link to="/about" className="block text-gray-700 hover:text-teal-600">About</Link>
+            <Link to="/contact" className="block text-gray-700 hover:text-teal-600">Contact</Link>
             {user ? (
               <>
+                {user.role === 'admin' && (
+                  <Link to="/admin/products" className="block text-teal-700 font-semibold">Admin</Link>
+                )}
                 <Link to="/wishlist" className="block text-gray-700 hover:text-teal-600">Wishlist</Link>
                 <Link to="/cart" className="block text-gray-700 hover:text-teal-600">
                   Cart {cartCount > 0 && `(${cartCount})`}

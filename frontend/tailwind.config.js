@@ -23,14 +23,18 @@ export default {
         'teal-green': '#20b2aa',
         'aqua': '#00ffff',
         'mint': '#bdfcc9',
+        'teal-blue': '#008080',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        display: ['"Cormorant Garamond"', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce-slow': 'bounce 2s infinite',
+        'float-slow': 'floatSlow 6s ease-in-out infinite',
+        'sheen': 'sheen 1.8s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -40,6 +44,14 @@ export default {
         slideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        floatSlow: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        sheen: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         },
       },
     },
